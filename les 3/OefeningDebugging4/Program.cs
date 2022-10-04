@@ -37,7 +37,7 @@ for (i = 0; i < n; i++)
     }
     else
     {
-        if (lrg2nd > arr1[i])
+        if (lrg2nd < arr1[i])
         {
             lrg2nd = arr1[i];
         }

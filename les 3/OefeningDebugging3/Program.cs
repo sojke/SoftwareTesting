@@ -2,7 +2,7 @@
 foreach (var person in persons)
 {
     {
-        Console.WriteLine(persons);
+        Console.WriteLine(person.Name);
     }
-    Console.ReadLine();
 }
+Console.ReadLine();
