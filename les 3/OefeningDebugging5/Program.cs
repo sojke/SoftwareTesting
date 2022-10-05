@@ -1,5 +1,7 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
+using System.Text;
+
 string w;
 int i, t, ttl;
 List<TimeSheetEntry> ents = new List<TimeSheetEntry>();
@@ -11,9 +13,9 @@ do
     w = Console.ReadLine();
     Console.Write("Hoe lang heb je gewerkt?");
     t = int.Parse(Console.ReadLine());
-    ent.HoursWorked = t;
-    ent.WorkDone = w;
-    ents.Add(ent);
+    ents.Add(new TimeSheetEntry());
+    ents.Last().WorkDone = w;
+    ents.Last().HoursWorked = t;
     Console.Write("Wil je nog een tijdeenheid ingeven? (JA/NEE)");
     if (Console.ReadLine() == "ja")
     {
@@ -32,6 +34,7 @@ for (i = 0; i < ents.Count; i++)
         ttl += ents[i].HoursWorked;
     }
 }
+Console.OutputEncoding = Encoding.Default;
 Console.WriteLine("Simulatie zenden email naar AP");
 Console.WriteLine("De rekening is €" + (ttl * 150) + " voor de gewerkte uren.");
 ttl = 0;
@@ -43,7 +46,7 @@ for (i = 0; i < ents.Count; i++)
     }
 }
 Console.WriteLine("Simulatie zenden email naar Microsoft");
-Console.WriteLine("De rekening is €" + (ttl * 125à + " voor de gewerkte uren.");
+Console.WriteLine("De rekening is €" + (ttl * 125) + " voor de gewerkte uren.");
 ttl = 0;
 for (i = 0; i < ents.Count; i++)
 {
